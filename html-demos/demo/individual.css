@@ -1,0 +1,163 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  box-sizing: border-box;
+}
+body {  
+  color: #485e74;
+  font-family: sans-serif; 
+  font-size: small;
+  margin: 0px;
+  padding: 1em
+}
+
+.pending-list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "formName"
+  "records"
+  "action";
+  grid-row-gap: 10px;
+ }
+ .formName{
+  justify-self: center;
+  align-self: center;
+ }
+ .action{
+  justify-self: end;
+  align-self: end;
+ }
+ .records{
+  grid-area: records;
+  display: grid;
+  grid-auto-flow: column;
+ }
+
+ .action{
+  grid-area: action;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  
+ }
+
+ .action button{
+    color: #fff;
+    background-color: #337ab7;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.70em;
+  border-radius: 3px;
+}
+.action button:hover , .action button:focus{
+  color: #fff;
+  background-color: #286090;
+}
+
+
+ /* formName css */
+
+ .formName {
+  grid-area: formName;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+/* web data table  */
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: .35em;
+}
+
+table tr:nth-child(even){ 
+  background: #fff;
+}
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background: #fff;
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+
+@media only screen and (max-width:480px){   
+
+   
+  .action{
+    grid-auto-flow: row;
+    row-gap: 10px;
+    justify-self: center;
+    align-self: center;
+  }
+ 
+   table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+   
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+   
+}
+
+ 

@@ -1,0 +1,249 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  box-sizing: border-box;
+}
+body {  
+  color: #485e74;
+  font-family: sans-serif; 
+  font-size: small;
+  margin: 0px;
+  padding: 1em
+}
+
+.pending-list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+    "record-selction        search"
+    "records                records"
+    "pagination             action";
+    grid-row-gap: 10px;
+ }
+
+ .action, .search{
+  justify-self: end;
+  align-self: end;
+ }
+ .record-selction , .pagination {
+  justify-self: start;
+  align-self: start;
+ }
+ .records{
+  grid-area: records;
+  display: grid;
+  grid-auto-flow: column;
+ }
+
+ .action{
+  grid-area: action;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  
+ }
+
+ .action button{
+    color: #fff;
+    background-color: #337ab7;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.70em;
+  border-radius: 3px;
+}
+.action button:hover , .action button:focus{
+  color: #fff;
+  background-color: #286090;
+}
+
+
+ /* search css */
+
+ .search {
+  grid-area: search;
+  display: grid;
+  grid-auto-flow: column;
+}
+.search >*{
+  padding: 5px;
+  text-align: center;
+}
+.search input{
+  width: 200px;
+  padding: 0.50em;
+  border: 1px solid #566c2b;
+  border-radius: 0.20rem;
+}
+
+/* record-selction css */
+
+.record-selction{
+  grid-area: record-selction;
+  display: grid;
+  grid-auto-flow: column;
+  
+}
+.record-selction >*{
+padding: 5px;
+}
+.record-selction select{
+width: 100%;
+padding: 0.50em;
+border: 1px solid #566c2b;
+border-radius: 0.20rem;
+}
+
+   /* pagination css  */
+
+   .pagination{
+    grid-area: pagination;
+    display: grid;
+    grid-auto-flow: column;
+  }
+   
+   .pagination  a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
+/* web data table  */
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 2px solid #fff;
+  padding: .35em;
+}
+
+table tr:nth-child(even){ 
+  background: #ddd;
+}
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+  border: 2px solid #fff;
+}
+
+table th {
+  background: rgb(196, 195, 195);
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+
+@media only screen and (max-width:480px){   
+  
+  .pending-list-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "search"
+    "record-selction"
+    "records"
+    "action"
+    "pagination";
+   }
+   
+   
+  .action{
+    grid-auto-flow: row;
+    row-gap: 10px;
+    justify-self: center;
+    align-self: center;
+  }
+
+   .record-selction{
+       grid-auto-flow: row;
+       justify-self: center;
+       align-self: center;
+   }
+
+   .search {
+     grid-auto-flow: row;
+     justify-self: center;
+     align-self: center;
+   }
+   .search input{
+    width: 100%;
+  }
+  
+   
+   .pagination{
+     grid-auto-flow: row;
+     justify-self: center;
+     align-self: center;
+   }
+
+   table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+   
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+   
+}
+
+ 
